@@ -13,3 +13,14 @@
 .login-form-button{
     width: 100%;
 }
+
+.fronst{
+    padding: 10px;
+    font-size: 20px;
+}
+.fronst a{
+    background-color: cornsilk;
+    color: rgb(12, 12, 12);
+    border-radius: 10px;
+    padding: 10px;
+}

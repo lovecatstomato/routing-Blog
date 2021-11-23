@@ -1,0 +1,78 @@
+/* 导航栏主体框架 */
+.navigation{
+    background-color: #F8F8FA;
+    padding: 4px;
+    border-bottom: solid 4px #E7E7E7;
+}
+/* 导航按钮 */
+.navigation button{
+    font-size: 15px;
+    margin: 10px;
+    padding: 8px;
+    background-color: blue;
+    border: none;
+    border-radius: 10px;
+    color: #F8F8FA;
+}
+/* 标题文字 */
+.titlecolor{
+    font-size: 40px;
+    font-weight: bolder;
+    margin: 0 auto;
+    width: 850px;
+    padding: 10px 0;
+}
+/* 标题框架 */
+.title{
+    background-color: #F8F8FA;
+    width: 1000px;
+    margin: 0 auto;
+}
+/* 作者详细框架 */
+.aut{
+    width: 850px;
+    margin: 0 auto;
+    padding: 0 0 10px 0;
+}
+.aut span{
+    color: #A4A297;
+    padding: 0 10px 0 0;
+}
+/* 作者 */
+.author{
+    font-weight: bolder;
+}
+/* 内容主体框架 */
+.content{
+    width: 1000px;
+    border-bottom: solid 1px #E7E7E7;
+    padding: 30px 0 30px 0;
+    margin: 0 auto;
+}
+.content-rem{
+    font-size: 16px;
+    width: 850px;
+    margin: 0 auto;
+}
+/* 评论主体框架 */
+.pu{
+    width: 850px;
+    margin: 0 auto;
+    padding: 40px 0 4px 0;
+}
+.PublishComment{
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.commentlis{
+    padding-left: 40px;
+}
+
+.show{
+    display: block;
+}
+
+.disappear{
+    display: none;
+}

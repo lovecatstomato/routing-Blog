@@ -12,13 +12,13 @@
 .me{
     background-color: #353535;
     color: #ffffff;
-    padding-left: 120px;
 }
 /* 底部介绍栏主体 */
 .introduce{
     height: 100vh;
     background-color: #001E50;
 }
-.but{
-    
+
+.remark{
+    padding-left: 10px;
 }
