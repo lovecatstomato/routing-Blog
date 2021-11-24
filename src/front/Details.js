@@ -9,19 +9,21 @@ import { LikeOutlined, LikeFilled } from '@ant-design/icons';
 const Details = (props) => {
   // console.log(props.location.state.newsId);
   // 创建显示数组
-  const [date, dateList] = useState([])
+  const [datel, dateList] = useState([])
   const [hasReply, setHasReply] = useState(false)
   const [currId, setCurrId] = useState('')
-  const ref = useRef(null);
+  // const ref = useRef(null);
   const { newsId } = props.location.state
   // 获取导航栏数据
   useEffect(() => {
     newsfrontdetailApi({ newsId }).then(res => {
       // console.log(res.data);
+
       if (res.code === 2) {
         dateList(res.data)
         // console.log(date.content);
-        ref.current.innerHTML = date.content
+        // ref.current.innerHTML = datel.content
+        // console.log(datel);
       }
     })
   }, []);
@@ -38,7 +40,6 @@ const Details = (props) => {
           newsfrontdetailApi({ newsId }).then(res => {
             if (res.code === 2) {
               dateList(res.data)
-              ref.current.innerHTML = date.content
             }
           })
         }
@@ -59,7 +60,7 @@ const Details = (props) => {
           <span className="comment-action">{props.data.favor}</span>
         </span>
       </Tooltip>,
-      <span key="comment-basic-reply-to" onClick={()=>huif(props.data.id)} >{(hasReply&&currId==props.data.id)?'收起':'回复'}</span>,
+      <span key="comment-basic-reply-to" onClick={() => huif(props.data.id)} >{(hasReply && currId == props.data.id) ? '收起' : '回复'}</span>,
     ];
 
     return (
@@ -80,24 +81,18 @@ const Details = (props) => {
       />
     )
   }
-
-
-  // 首页跳转
-  const front = () => {
-    props.history.push('/app')
-  }
   // 评论组件
   const ExampleComment = () => {
     return (
       <List
         className="comment-list"
         itemLayout="horizontal"
-        dataSource={date.notes}
+        dataSource={datel.notes}
         renderItem={item => (
           <li>
             <T1 data={item} />
             {/* 嵌套评论 */}
-            {(hasReply&&item.id==currId) && <Pinl data={item.id} />}
+            {(hasReply && item.id == currId) && <Pinl data={item.id} />}
             {item.replys.length !== 0 ? <Ons data={item.replys} /> : null}
           </li>
         )}
@@ -115,7 +110,6 @@ const Details = (props) => {
           newsfrontdetailApi({ newsId }).then(res => {
             if (res.code === 2) {
               dateList(res.data)
-              ref.current.innerHTML = date.content
             }
           })
         }
@@ -186,38 +180,50 @@ const Details = (props) => {
 
   // 获取发表评论输入框
   const onFinish = (values) => {
-    commentaddApi({ newsId: date.newsId, text: values.Comment }).then(resd => {
+    commentaddApi({ newsId: datel.newsId, text: values.Comment }).then(resd => {
       console.log(resd);
     })
   };
 
-
+  // 登录页面跳转
+  const login = () => {
+    props.history.push('/')
+  }
+  // 首页跳转
+  const front = () => {
+    props.history.push('/app')
+  }
+  // 注册跳转
+  const register = () => {
+    props.history.push('/register')
+  }
   return (
     <div>
       {/* 导航 */}
       <div className="navigation">
         <button onClick={front}>首页</button>
-        <button>登录</button>
+        <button onClick={login}>登录</button>
+        <button onClick={register}>注册</button>
       </div>
       {/* 标题 */}
       <div className="title">
-        <h1 className="titlecolor">{date.title}</h1>
+        <h1 className="titlecolor">{datel.title}</h1>
         <div className="aut">
-          <p className="author">{date.author}</p>
-          <span>发布时间：{date.date}</span>
+          <p className="author">{datel.author}</p>
+          <span>发布时间：{datel.date}</span>
           <span>|</span>
-          <span>{date.remark}</span>
+          <span>{datel.remark}</span>
         </div>
       </div>
       {/* 中间内容 */}
       <div className="content">
         {/* 内容 */}
         <div className="content-rem">
-          {/* <div dangerouslySetInnerHTML={{__html: date.content}}>
-          </div> */}
-          <div ref={ref}></div>
+          <div dangerouslySetInnerHTML={{__html: datel.content}}>
+          </div>
+          {/* <div ref={ref}></div> */}
 
-          <img src={date.pic ? `http://192.168.0.254:8088/${date.pic}` : `https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png`} />
+          <img src={datel.pic ? `http://192.168.0.254:8088/${datel.pic}` : `https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png`} />
 
         </div>
       </div>

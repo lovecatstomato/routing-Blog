@@ -14,7 +14,6 @@ const BasicRoute = () => (
             <Route path='/details' component={details} />
         </Switch>
     </BrowserRouter>
-
 )
 
 export default BasicRoute
