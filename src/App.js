@@ -89,7 +89,7 @@ const App = (props) => {
                   width={272}
                   height={150}
                   alt="图片"
-                  src={item.pic ? `http://192.168.0.254:8086/${item.pic}` : `https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png`}
+                  src={item.pic ? `http://192.168.0.254:8088/${item.pic}` : `https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png`}
                 />
               }
             >
